@@ -7,7 +7,7 @@ resetButton = document.querySelector("#reset");
 
 let p1Score = 0;
 let p2Score = 0;
-let winScore = 2;
+let winScore = 3;
 
 //listen for winning score
 winningScore.addEventListener("change", function () {
@@ -38,20 +38,18 @@ p2Button.addEventListener("click", function () {
 function endGame(winPlayer, losePlayer) {
   p1Button.disabled = true;
   p2Button.disabled = true;
-  winPlayer.style.color = "green";
-  losePlayer.style.color = "red";
+  winPlayer.classList.add("text-success");
+  losePlayer.classList.add("text-danger");
 }
 
 resetButton.addEventListener("click", function () {
   //reset scores to 0 in black, enable payer buttons, and winning score
   p1Button.disabled = false;
   p2Button.disabled = false;
-  p1Display.style.color = "black";
-  p2Display.style.color = "black";
+  p1Display.classList.remove("text-success", "text-danger");
+  p2Display.classList.remove("text-success", "text-danger");
   p1Display.textContent = 0;
   p2Display.textContent = 0;
-  winningScore.value = "";
   p1Score = 0;
   p2Score = 0;
-  winScore = 2;
 });
